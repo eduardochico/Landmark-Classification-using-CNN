@@ -79,7 +79,6 @@ def get_data_loaders(
     # Create train and validation datasets
     train_data = datasets.ImageFolder(
         base_path / "train",
-        # YOUR CODE HERE: add the appropriate transform that you defined in
         # the data_transforms dictionary
         transform=data_transforms["train"]
     )
@@ -87,7 +86,6 @@ def get_data_loaders(
     # from the same folder, but we apply the transforms for validation
     valid_data = datasets.ImageFolder(
         base_path / "train",
-        # YOUR CODE HERE: add the appropriate transform that you defined in
         # the data_transforms dictionary
         transform=data_transforms["valid"]
     )
@@ -156,13 +154,12 @@ def visualize_one_batch(data_loaders, max_n: int = 5):
     :return: None
     """
 
-    # YOUR CODE HERE:
     # obtain one batch of training images
     # First obtain an iterator from the train dataloader
     dataiter  = iter(data_loaders['train']) # YOUR CODE HERE
     # Then call the .next() method on the iterator you just
     # obtained
-    images, labels  = next(dataiter) # YOUR CODE HERE
+    images, labels  = next(dataiter)
 
     # Undo the normalization (for visualization purposes)
     mean, std = compute_mean_and_std()
@@ -175,7 +172,6 @@ def visualize_one_batch(data_loaders, max_n: int = 5):
 
     images = invTrans(images)
 
-    # YOUR CODE HERE:
     # Get class names from the train data loader
     class_names  = data_loaders['train'].dataset.classes # YOUR CODE HERE
 
